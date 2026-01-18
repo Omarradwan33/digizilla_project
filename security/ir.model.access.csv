@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_digizillians_project,digizilla.project,model_digizilla_project,digizilla_project.group_digizillians,1,1,1,1
+access_digizilla_tag,digizilla.tag,model_digizilla_tag,digizilla_project.group_digizillians,1,1,1,1

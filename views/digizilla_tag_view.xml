@@ -1,0 +1,13 @@
+<odoo>
+    <record id="digizilla_tag_list_view" model="ir.ui.view">
+        <field name="name">digizilla_tag_list_view</field>
+        <field name="model">digizilla.tag</field>
+        <field name="arch" type="xml">
+            <list string="Tags" editable="top" sample="1" multi_edit="1" default_order="name">
+                <field name="name"/>
+                <field name="color" widget="color_picker" optional="show"/>
+            </list>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,15 @@
+<odoo>
+    <!--digizilla project action-->
+    <record id="digizilla_project_action" model="ir.actions.act_window">
+        <field name="name">Digizilla</field>
+        <field name="res_model">digizilla.project</field>
+        <field name="view_mode">list,kanban,pivot,form</field>
+    </record>
+
+    <!--digizilla tags action-->
+    <record id="digizilla_tag_action" model="ir.actions.act_window">
+        <field name="name">Digizilla Tags</field>
+        <field name="res_model">digizilla.tag</field>
+        <field name="view_mode">list</field>
+    </record>
+</odoo>

@@ -1,0 +1,12 @@
+<odoo>
+    <record id="digizilla_project_report" model="ir.actions.report">
+        <field name="name">Digizilla Project</field>
+        <field name="model">digizilla.project</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">digizilla_project.report_digizilla_template</field>
+        <field name="report_file">digizilla_project.report_digizilla_template</field>
+        <!--            <field name="print_report_name">(object._get_report_base_filename())</field>-->
+        <field name="binding_model_id" ref="digizilla_project.model_digizilla_project"/>
+        <!--            <field name="binding_type">report</field>-->
+    </record>
+</odoo>

@@ -1,0 +1,94 @@
+<odoo>
+    <!--list view form-->
+    <record id="digizilla_project_view_list" model="ir.ui.view">
+        <field name="name">digizilla.view.list</field>
+        <field name="model">digizilla.project</field>
+        <field name="arch" type="xml">
+            <list string="Digizilla">
+                <field name="name"/>
+                <field name="age"/>
+                <field name="tag_ids" widget="many2many_tags"/>
+                <field name="birth_date"/>
+                <field name="gender" optional="hide"/>
+                <field name="country_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+    <!--Kanban View-->
+    <record id="digizilla_kanban_view" model="ir.ui.view">
+        <field name="name">digizilla.kanban.view</field>
+        <field name="model">digizilla.project</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="o_kanban_record">
+                            <strong>
+                                Name:
+                                <field name="name"/>
+                            </strong>
+                            <div>Age:
+                                <field name="age"/>
+                            </div>
+                            <div>
+                                Sales Orders:
+                                <field name="no_of_sales_orders"/>
+                            </div>
+                            <div>
+                                Tags:
+                                <field name="tag_ids" widget="many2many_tags"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+    <!-- Pivot View -->
+    <record id="view_digizilla_pivot" model="ir.ui.view">
+        <field name="name">digizilla.project.pivot</field>
+        <field name="model">digizilla.project</field>
+        <field name="arch" type="xml">
+            <pivot string="Digizilla Pivot">
+                <field name="country_id" type="row"/>
+                <field name="gender" type="row"/>
+                <field name="no_of_sales_orders" type="measure"/>
+                <field name="customer_id" type="row"/>
+            </pivot>
+        </field>
+    </record>
+    <!--form view-->
+    <record id="digizilla_project_view_form" model="ir.ui.view">
+        <field name="name">digizilla.view.form</field>
+        <field name="model">digizilla.project</field>
+        <field name="arch" type="xml">
+            <form string="Digizilla">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="customer_id"/>
+                            <field name="tag_ids" widget="many2many_tags"/>
+                            <field name="no_of_sales_orders"/>
+                        </group>
+                        <group>
+                            <field name="country_id"/>
+                            <field name="gender"/>
+                            <field name="birth_date"/>
+                            <field name="age"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="notes" string="Notes">
+                            <field name="notes"/>
+                        </page>
+                        <page name="comments" string="Comments">
+                            <field name="comments"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

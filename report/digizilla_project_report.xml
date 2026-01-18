@@ -1,0 +1,98 @@
+<odoo>
+    <template id="report_digizilla_template">
+        <t t-call="web.external_layout">
+            <style>
+                strong {
+                    padding: 8px;
+                }
+            </style>
+            <main>
+                <t t-foreach="docs" t-as="doc">
+                    <div class="page" style="page-break-inside: avoid;">
+                        <h2 style="text-align:center;">Digizilla Project</h2>
+                        <table class="table table-condensed">
+                            <tr>
+                                <td>
+                                    <strong>Name:</strong>
+                                </td>
+                                <td>
+                                    <t t-esc="doc.name or ''"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Country:</strong>
+                                </td>
+                                <td>
+                                    <t t-esc="doc.country_id.name or ''"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Birth Date:</strong>
+                                </td>
+                                <td>
+                                    <t t-esc="doc.birth_date or ''"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Age:</strong>
+                                </td>
+                                <td>
+                                    <t t-esc="doc.age or ''"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Tags:</strong>
+                                </td>
+                                <td>
+                                    <t t-if="doc.tag_ids">
+                                        <t t-foreach="doc.tag_ids" t-as="tag" t-index="index">
+                                            <t t-esc="tag.name"/>
+                                            <t t-if="index != len(doc.tag_ids) - 1">,</t>
+                                        </t>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Customer:</strong>
+                                </td>
+                                <td>
+                                    <t t-esc="doc.customer_id.name or ''"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>No. of Sales Orders:</strong>
+                                </td>
+                                <td>
+                                    <t t-esc="doc.no_of_sales_orders or 0"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Gender:</strong>
+                                </td>
+                                <td>
+                                    <t t-esc="doc.gender or ''"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <div style="margin-top: 15px;">
+                            <h3>Comments:</h3>
+                            <p>
+                                <t t-esc="doc.comments or ''"/>
+                            </p>
+
+                            <h3>Notes:</h3>
+                            <div t-raw="doc.notes or ''" style="border:1px solid #ddd; padding:5px;"/>
+                        </div>
+                    </div>
+                </t>
+            </main>
+        </t>
+    </template>
+</odoo>
